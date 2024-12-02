@@ -1,8 +1,23 @@
 ---
-  host: all
-- name: Config Interface IP Address
-  cisco.ios.ios_l3_interfaces:
-    config:
-      - name: Loopback 0
-        ipv4:
-          - address: 1.1.1.1/24
+- name: Configure Loopback Interface on Router104
+  hosts: all
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+    - name: Configure Loopback0 interface with IP 7.7.7.7
+      ios_config:
+        lines:
+          - interface Loopback0
+          - ip address 7.7.7.7 255.255.255.255
+          - no shutdown
+
+    - name: Verify Loopback0 Interface Configuration
+      ios_command:
+        commands:
+          - show ip interface brief | include Loopback0
+      register: loopback_output
+
+    - name: Display Verification Output
+      debug:
+        var: loopback_output.stdout_lines
