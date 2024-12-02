@@ -1,0 +1,6 @@
+- name: Config Interface IP Address
+  cisco.ios.ios_l3_interfaces:
+    config:
+      - name: Loopback 0
+        ipv4:
+          - address: 192.168.2.0/24
