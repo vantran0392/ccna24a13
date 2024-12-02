@@ -1,4 +1,5 @@
 ---
+host: all
 - name: Config Interface IP Address
   cisco.ios.ios_l3_interfaces:
     config:
