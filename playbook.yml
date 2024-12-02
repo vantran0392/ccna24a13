@@ -1,7 +1,7 @@
 ---
 - name: Configure Loopback Interface on Router104
   gather_facts: no
-  host: all
+  hosts: all
   tasks:
     - name: Show run
       cisco.ios.ios_command:
