@@ -2,7 +2,6 @@
 - name: Configure Loopback Interface on Router104
   hosts: all
   gather_facts: no
-  connection: network_cli
 
   tasks:
     - name: Configure Loopback0 interface with IP 7.7.7.7
