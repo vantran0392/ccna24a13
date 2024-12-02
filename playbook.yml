@@ -1,6 +1,5 @@
 ---
 - name: Configure Loopback Interface on Router104
-  hosts: all
   gather_facts: no
 
   tasks:
